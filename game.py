@@ -1,6 +1,7 @@
 import random
 import pitcher
 import hitter
+import orioles
 
 
 class Game:
@@ -41,17 +42,23 @@ class Game:
 
     def choose_lineup(self):
         lineup = []
-        print("Ok, begin choosing your lineup by entering the number that represents the player you want to lead off. ")
+        print("Ok, begin choosing your lineup by simply entering the name of the player you want to lead off. ")
         print("Here are your options:")
+        lineup_tracker = 1
         while len(lineup) < 9:
             for i in range(len(self.__hitters)):
-                print(i+1, ") ", str(self.__hitters[i]), sep='')
-            user_response = int(input())
-            lineup.append(self.__hitters[user_response - 1])
-            del self.__hitters[user_response - 1]
+                print(i+1, ") ", self.__hitters[i].get_name(), sep='')
+            print()
+            user_response = input(str(lineup_tracker) + ") ")
+            print()
+            for j in range(len(self.__hitters)):
+                if user_response.lower() == self.__hitters[j].get_name().lower():
+                    lineup.append(self.__hitters[j])
+                    del self.__hitters[j]
+            lineup_tracker += 1
         print("OK, here is your lineup: ")
         for i in range(len(lineup)):
-            print(i+1, ") ", lineup[i], sep='')
+            print(i+1, ") ", lineup[i].get_name(), sep='')
         return lineup
 
     def current_batter(self, i):
@@ -107,10 +114,11 @@ class Game:
         return pitch
 
 
-StartingPitcher = ['a']
-OriolesHitters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-my_game = Game(OriolesHitters, StartingPitcher)
-if my_game.hit_or_pitch() == 'hit':
+my_team = orioles.Orioles()
+my_team.set_hitters()
+my_team.set_pitchers()
+my_game = Game(my_team.get_hitters(), my_team.get_pitchers())
+if my_game.hit_or_pitch().lower() == 'hit':
     my_game.choose_lineup()
 
 
