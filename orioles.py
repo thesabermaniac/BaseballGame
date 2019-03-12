@@ -20,15 +20,15 @@ class Orioles:
         return self.__pitchers
 
     def set_hitters(self):
-        ChanceCisco = hitter.Hitter(50, 30, 20, 40)
-        ChrisDavis = hitter.Hitter(70, 30, 10, 20)
-        JonathanVillar = hitter.Hitter(50, 60, 40, 50)
-        RenatoNunez = hitter.Hitter(50, 40, 50, 60)
-        RichieMartin = hitter.Hitter(50, 60, 30, 50)
-        DJStewart = hitter.Hitter(50, 40, 50, 60)
-        CedricMullins = hitter.Hitter(60, 50, 50, 60)
-        TreyMancini = hitter.Hitter(50, 60, 30, 50)
-        MarkTrumbo = hitter.Hitter(70, 30, 10, 20)
+        ChanceCisco = hitter.Hitter('Chance Cisco', 50, 30, 20, 40)
+        ChrisDavis = hitter.Hitter('Chris Davis', 70, 30, 10, 20)
+        JonathanVillar = hitter.Hitter('Jonathan Villar', 50, 60, 40, 50)
+        RenatoNunez = hitter.Hitter('Renato Nunez', 50, 40, 50, 60)
+        RichieMartin = hitter.Hitter('Richie Martin', 50, 60, 30, 50)
+        DJStewart = hitter.Hitter('DJ Stewart', 50, 40, 50, 60)
+        CedricMullins = hitter.Hitter('Cedric Mullins', 60, 50, 50, 60)
+        TreyMancini = hitter.Hitter('Trey Mancini', 50, 60, 30, 50)
+        MarkTrumbo = hitter.Hitter('Mark Trumbo', 70, 30, 10, 20)
         self.__hitters = [ChanceCisco, ChrisDavis, JonathanVillar, RenatoNunez, RichieMartin, DJStewart, CedricMullins, TreyMancini, MarkTrumbo]
 
     def get_hitters(self):
