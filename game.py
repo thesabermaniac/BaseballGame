@@ -51,10 +51,14 @@ class Game:
             print()
             user_response = input(str(lineup_tracker) + ") ")
             print()
-            for j in range(len(self.__hitters)):
-                if user_response.lower() == self.__hitters[j].get_name().lower():
-                    lineup.append(self.__hitters[j])
-                    del self.__hitters[j]
+            if user_response.isdigit():
+                lineup.append(self.__hitters[int(user_response) - 1])
+                del self.__hitters[int(user_response) - 1]
+            else:
+                for j in range(len(self.__hitters)-1):
+                    if user_response.lower() == self.__hitters[j].get_name().lower():
+                        lineup.append(self.__hitters[j])
+                        del self.__hitters[j]
             lineup_tracker += 1
         print("OK, here is your lineup: ")
         for i in range(len(lineup)):
