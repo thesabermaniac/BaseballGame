@@ -38,9 +38,12 @@ class Game:
 
     def hit_or_pitch(self):
         user = input("Would you like to hit or pitch? ")
-        return user
+        if user.lower() == 'hit':
+            my_game.user_lineup()
+        elif user.lower() == 'pitch':
+            my_game.user_pitcher()
 
-    def choose_lineup(self):
+    def user_lineup(self):
         lineup = []
         print("Ok, begin choosing your lineup by simply entering the name of the player you want to lead off. ")
         print("Here are your options:")
@@ -55,18 +58,39 @@ class Game:
                 lineup.append(self.__hitters[int(user_response) - 1])
                 del self.__hitters[int(user_response) - 1]
             else:
-                for j in range(len(self.__hitters)-1):
+                for j in range(len(self.__hitters)):
                     if user_response.lower() == self.__hitters[j].get_name().lower():
                         lineup.append(self.__hitters[j])
                         del self.__hitters[j]
+                        break
             lineup_tracker += 1
         print("OK, here is your lineup: ")
         for i in range(len(lineup)):
             print(i+1, ") ", lineup[i].get_name(), sep='')
         return lineup
 
+    def user_pitcher(self):
+        print("Ok, which pitcher would you like to use? ")
+        print("Here are your options: ")
+        for i in range(len(self.__pitchers)):
+            print(i+1, ") ", self.__pitchers[i].get_name(), sep='')
+        print()
+        user_response = input()
+        print()
+        if user_response.isdigit():
+            user_pitcher = self.__pitchers[int(user_response) - 1]
+        else:
+            for j in range(len(self.__pitchers)):
+                if user_response.lower() == self.__pitchers[j].get_name().lower():
+                    user_pitcher = self.__pitchers[j]
+        print("Your pitcher is", user_pitcher.get_name())
+        return user_pitcher
+
     def current_batter(self, i):
         return self.__hitters[i]
+
+    def current_pitcher(self, i):
+        return self.__pitchers[i]
 
     def is_swing(self):
         user = input("Would you like to swing (y/n)? ")
@@ -122,7 +146,6 @@ my_team = orioles.Orioles()
 my_team.set_hitters()
 my_team.set_pitchers()
 my_game = Game(my_team.get_hitters(), my_team.get_pitchers())
-if my_game.hit_or_pitch().lower() == 'hit':
-    my_game.choose_lineup()
+my_game.hit_or_pitch()
 
 
