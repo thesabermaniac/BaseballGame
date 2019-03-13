@@ -3,13 +3,17 @@ import random
 
 class Pitcher:
 
-    def __init__(self, fb, ch, cb, sl, pick, control):
+    def __init__(self, name, fb, ch, cb, sl, pick, control):
+        self.__name = name
         self.__fastball = fb
         self.__changeup = ch
         self.__curveball = cb
         self.__slider = sl
         self.__pickoff = pick
         self.__control = control
+
+    def set_name(self, name):
+        self.__name = name
 
     def set_fastball(self, fb):
         self.__fastball = fb
@@ -28,6 +32,9 @@ class Pitcher:
 
     def set_control(self, control):
         self.__control = control
+
+    def get_name(self):
+        return self.__name
 
     def get_fastball(self):
         return self.__fastball
