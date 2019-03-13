@@ -9,11 +9,11 @@ class Orioles:
         self.__hitters = []
 
     def set_pitchers(self):
-        AlexCobb = pitcher.Pitcher(50, 60, 30, 20, 10, 80)
-        DylanBundy = pitcher.Pitcher(70, 40, 60, 30, 5, 80)
-        AndrewCashner = pitcher.Pitcher(40, 60, 50, 30, 10, 70)
-        DavidHess = pitcher.Pitcher(30, 40, 50, 30, 5, 60)
-        YefryRamirez = pitcher.Pitcher(40, 30, 40, 20, 10, 60)
+        AlexCobb = pitcher.Pitcher('Alex Cobb', 50, 60, 30, 20, 10, 80)
+        DylanBundy = pitcher.Pitcher('Dylan Bundy', 70, 40, 60, 30, 5, 80)
+        AndrewCashner = pitcher.Pitcher('Andrew Cashner', 40, 60, 50, 30, 10, 70)
+        DavidHess = pitcher.Pitcher('David Hess', 30, 40, 50, 30, 5, 60)
+        YefryRamirez = pitcher.Pitcher('Yefry Ramirez', 40, 30, 40, 20, 10, 60)
         self.__pitchers = [AlexCobb, DylanBundy, AndrewCashner, DavidHess, YefryRamirez]
 
     def get_pitchers(self):
